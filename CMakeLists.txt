@@ -1,13 +1,13 @@
 cmake_minimum_required(VERSION 3.10)
 
 # set the project name
-project(programoptions)
+project(httpclient_async)
 
 # add the executable
-find_package(Boost COMPONENTS program_options)
+find_package(Boost COMPONENTS system)
 if(Boost_FOUND)
   include_directories(${Boost_INCLUDE_DIRS})
-add_executable(programoptions programoptions.cpp)
-target_link_libraries(programoptions Boost::program_options)
-target_compile_features(programoptions PRIVATE cxx_std_17)
+add_executable(httpclient_async async_httpclient.cpp)
+# target_link_libraries(io_context Boost::async_wait)
+target_compile_features(httpclient_async PRIVATE cxx_std_17)
 endif()
